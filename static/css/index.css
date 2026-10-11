@@ -106,7 +106,6 @@ pre ::selection, pre::selection { background: #c2bfd0; }
   .affiliations { font-size: 1em; }
 }
 
-/* Local editorial review: retain both versions until approval. */
 .review-old { background: #fff0bc; color: #765000; }
 .review-new { background: #e5f4e6; color: #17612b; }
 span.review-new { margin-left: 0.3em; }
@@ -116,17 +115,14 @@ div.review-old, div.review-new { padding: 0.1em 0.5em; margin: 0.4em 0; }
 .review-old a, .review-new a { color: inherit; text-decoration: underline; }
 .math-punctuation { white-space: nowrap; }
 .figure-state { font-weight: bold; }
-/* geom-for-arxiv/scripts/skill-simplex/plotting/plot_style.py: MUTED_CYCLE_HEX[:3] */
 .state-1 { color: #8172B3; }
 .state-2 { color: #DD8452; }
 .state-3 { color: #937860; }
 li + li { margin-top: 0.6em; }
 
-/* Exact TEAL/ORANGE from geom-for-arxiv/scripts/plot_occupancy_simplex.py. */
 .simplex-teal { color: rgb(0.09308% 56.95430% 56.48127%); }
 .simplex-orange { color: rgb(86.90623% 40.14344% 4.64332%); }
 
-/* Paper excerpts and existing figure assets, adapted to the website layout. */
 h4 { font-size: 1em; margin: 1.5em 0 0.35em; }
 h4 + p { margin-top: 0; }
 .method-summary { font-style: normal; }
@@ -145,8 +141,6 @@ h4 + p { margin-top: 0; }
   .math.display { font-size: 0.85em; }
 }
 
-/* Content-specific figure sizes. Figures 2 and 3 keep small plots (text near body size)
-   inside the wider caption column used by the other figures. */
 #fig-training_curves_craftax { max-width: 46rem; }
 #fig-highdof_combined { max-width: 42rem; }
 #fig-training_curves { max-width: 46rem; }
@@ -164,37 +158,30 @@ main > section > figure > figcaption { width: 100%; }
   #fig-emergent-behaviors > .figure-download img { min-width: 30rem; }
 }
 
-/* Rollout players sit inside the paper's existing figure widths. */
 [hidden] { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .rollout-demo { min-width: 0; }
-/* One text size throughout the players (the page's body size); plot titles slightly larger. */
 .rollout-player { --accent: #20638f; --line: #e2e3dd; --muted: #6b7476; font-size: 1rem; line-height: 1.45; }
 .rollout-method, .rollout-explorer, .rollout-compact { background: #fafaf7; border: 1px solid var(--line); border-radius: 6px; }
 .rollout-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.25rem; padding: 1rem 1rem 0.5rem; }
 .rollout-mini .rollout-body, .rollout-compact .rollout-body { display: block; padding: 0; }
 .rollout-compact .rollout-body { padding: 0.75rem 0.75rem 0; }
 
-/* Footage: square native frames, no extra chrome. */
 .rollout-stage { position: relative; aspect-ratio: 1; width: 100%; min-width: 0; background: #ecebe6; border-radius: 4px; overflow: hidden; cursor: pointer; }
 .rollout-video, .rollout-hold { display: block; width: 100%; height: 100%; object-fit: contain; }
 .rollout-hold { position: absolute; inset: 0; background: #ecebe6; }
 .pixel-stage .rollout-video, .pixel-stage .rollout-hold { image-rendering: pixelated; }
 .rollout-compact .rollout-stage { max-width: 26rem; margin: 0 auto; }
 
-/* Method demonstration: footage beside the two-stage explanation. */
 .rollout-method .rollout-body { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; }
 .rollout-story-card { padding: 0.6rem 0.85rem; border-left: 3px solid #d7dcd9; margin: 0 0 0.6rem; color: #59625f; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; }
 .rollout-story-card p { margin: 0.25rem 0 0; }
 .rollout-story-card strong { color: inherit; }
 .rollout-story-card.active { background: #edf2f1; border-color: var(--accent); color: #2f3a3d; }
 
-/* One transport row: button, timeline, step. */
 .rollout-controls { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem 0.75rem; }
 .rollout-mini .rollout-controls { padding: 0.5rem 0 0; gap: 0.6rem; }
 .rollout-timeline { position: relative; flex: 1; min-width: 0; }
-/* Track stops use the thumb-center geometry, so they meet the thumb and markers exactly.
-   White potential prefix, then the selected skills' colors; the unplayed part is faded. */
 .rollout-slider { --progress: 0; --switch: 0.25; --thumb: 14px; --at-progress: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--progress)); --at-switch: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--switch)); --skills: linear-gradient(#8c9a9d, #8c9a9d); appearance: none; display: block; width: 100%; height: 8px; margin: 0; border-radius: 4px; cursor: pointer; touch-action: pan-y;
   background:
     linear-gradient(to right, transparent var(--at-progress), rgba(250, 250, 247, 0.72) var(--at-progress)),
@@ -217,7 +204,6 @@ main > section > figure > figcaption { width: 100%; }
 .rollout-primary:hover { color: var(--accent); background: transparent; }
 .at-teaching-pause .rollout-primary { color: var(--accent); }
 
-/* Skill selection: color swatches carry identity; text stays dark. */
 .rollout-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 1rem 0.75rem; }
 .rollout-method .rollout-chips { padding: 0.25rem 0 0; }
 .rollout-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.65rem; border: 1px solid #d6d9d3; border-radius: 999px; background: #fff; color: #4a565b; font: inherit; line-height: 1.5; cursor: pointer; }
@@ -226,20 +212,16 @@ main > section > figure > figcaption { width: 100%; }
 .rollout-swatch { display: inline-block; flex: none; width: 0.7rem; height: 0.7rem; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15); }
 .rollout-chip[aria-pressed="true"] .rollout-swatch { box-shadow: 0 0 0 1.5px #fff; }
 
-/* Teaching text: one quiet line under the footage. */
 .rollout-message { margin: 0.4rem 1rem 0; padding: 0.15rem 0 0.15rem 0.7rem; min-height: 2.9em; border-left: 3px solid transparent; color: var(--muted); }
 .rollout-message strong { color: #2f3a3d; font-weight: bold; }
 .at-teaching-pause .rollout-message { border-left-color: var(--accent); }
 .rollout-compact .rollout-message { margin: 0.6rem 0.75rem 0; }
 .rollout-compact .rollout-controls { padding: 0.5rem 0.75rem 0.6rem; }
 
-/* Environment tabs: a quiet segmented control. */
 .rollout-tabs { display: flex; gap: 0.25rem; margin: 1rem 1rem 0.5rem; padding: 0.2rem; width: fit-content; max-width: calc(100% - 2rem); overflow-x: auto; background: #eeeee9; border-radius: 6px; }
 .rollout-tabs .rollout-button { flex: none; border-color: transparent; background: transparent; padding: 0.25rem 0.8rem; }
 .rollout-tabs [aria-pressed="true"] { background: #fff; color: #2f3a3d; border-color: #d6d9d3; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
-/* Trace explorer plots: page-sized text. */
-/* The top view is the same square as the footage beside it. */
 .rollout-path-panel { min-width: 0; }
 .rollout-path-panel svg, .rollout-chart svg { cursor: pointer; }
 .rollout-path-panel svg { display: block; width: 100%; height: auto; aspect-ratio: 1; }
@@ -268,7 +250,6 @@ main > section > figure > figcaption { width: 100%; }
   .rollout-message { margin-left: 0.65rem; margin-right: 0.65rem; }
   .rollout-tabs { flex-wrap: wrap; margin: 0.65rem 0.65rem 0; max-width: calc(100% - 1.3rem); }
   .rollout-tabs .rollout-button, .rollout-chip { min-height: 2.4rem; }
-  /* A full-width scrubber on its own row below the button. */
   .rollout-controls { flex-wrap: wrap; row-gap: 0.9rem; }
   .rollout-timeline { order: 3; flex-basis: 100%; }
   .rollout-step { margin-left: auto; }
@@ -277,11 +258,9 @@ main > section > figure > figcaption { width: 100%; }
   .rollout-story-card { transition: none; }
 }
 
-/* Craftax composite: skill names in the corners of the 2 x 2 grid. */
 .rollout-lane-labels { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; pointer-events: none; }
 .rollout-lane-label { align-self: start; justify-self: start; display: inline-flex; align-items: center; gap: 0.35rem; margin: 0.35rem; padding: 0.05rem 0.45rem; border-radius: 999px; background: rgba(30, 33, 36, 0.66); color: #fff; line-height: 1.5; }
 
-/* Figure 5: three recorded Craftax panels in one row. */
 .rollout-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .rollout-grid-3 .rollout-controls { gap: 0.35rem; }
 
