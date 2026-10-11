@@ -68,6 +68,44 @@
     return group;
   }
 
+  // Some hosts (anonymous.4open.science) serve files without HTTP range support
+  // inside a sandbox that blocks fetch(), so a streamed video there cannot seek.
+  // With ROLLOUT_INLINE_VIDEOS set, each clip ships as base64 script parts
+  // (<clip>.mp4.<i>.js) and plays from an in-memory blob instead.
+  const inlineParts = {};
+  const inlineVideos = new Map();
+  window.__rolloutVideoPart = (key, index, count, data) => {
+    (inlineParts[key] ||= { count, parts: [] }).parts[index] = data;
+  };
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = () => reject(new Error(`Could not load ${src}`));
+      document.head.append(script);
+    });
+  }
+
+  function inlineVideo(url, key) {
+    if (!inlineVideos.has(key)) {
+      const load = (async () => {
+        await loadScript(`${url}.0.js`);
+        const { count } = inlineParts[key];
+        await Promise.all(Array.from({ length: count - 1 }, (_, i) => loadScript(`${url}.${i + 1}.js`)));
+        const text = atob(inlineParts[key].parts.join(''));
+        delete inlineParts[key];
+        const bytes = new Uint8Array(text.length);
+        for (let i = 0; i < text.length; i++) bytes[i] = text.charCodeAt(i);
+        return URL.createObjectURL(new Blob([bytes], { type: 'video/mp4' }));
+      })();
+      load.catch(() => inlineVideos.delete(key));
+      inlineVideos.set(key, load);
+    }
+    return inlineVideos.get(key);
+  }
+
   function floorIndex(values, value) {
     let lo = 0;
     let hi = values.length - 1;
@@ -376,7 +414,15 @@
       const token = ++this.bindToken;
       this.metadataReady = false;
       this.video.poster = this.baseUrl + this.rollout.poster;
-      this.video.src = this.baseUrl + this.timeline.variant.video;
+      const url = this.baseUrl + this.timeline.variant.video;
+      if (window.ROLLOUT_INLINE_VIDEOS) {
+        this.video.removeAttribute('src');
+        inlineVideo(url, `${this.key}/${this.timeline.variant.video}`)
+          .catch(() => url)
+          .then(src => { if (token === this.bindToken) this.video.src = src; });
+      } else {
+        this.video.src = url;
+      }
       this.video.onloadedmetadata = () => {
         if (token !== this.bindToken) return;
         this.metadataReady = true;
