@@ -1,196 +1,39 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="A Scalable Method for Maximizing Agent Empowerment" />
-        <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
-        <script defer src="./static/js/fontawesome.all.min.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs-bibtex@2.1.0/prism-bibtex.min.js"></script>
-        <link rel="stylesheet" href="static/css/index.css" />
-
-        <title>A Scalable Method for Maximizing Agent Empowerment</title>
-
-        <script
-            type="text/javascript"
-            id="MathJax-script"
-            async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg.js"></script>
-        <script>
-            function selectContent(query) {
-                var range = document.createRange()
-                var selection = window.getSelection()
-                var elem = document.querySelector(query)
-                range.selectNodeContents(elem)
-                selection.removeAllRanges()
-                selection.addRange(range)
-            }
-        </script>
-    </head>
-
-    <body>
-        <script type="text/javascript">
-            window.MathJax = {
-                tex: {
-                    inlineMath: [
-                        ["$", "$"],
-                        ["\\(", "\\)"],
-                    ],
-                    displayMath: [
-                        ["$$", "$$"],
-                        ["\\[", "\\]"],
-                    ],
-                    processEscapes: true,
-                    macros: {
-                        S: "\\mathcal{S}",
-                        A: "\\mathcal{A}",
-                        D: "\\mathcal{D}",
-                        R: "\\mathbb{R}",
-                        E: "\\mathbb{E}",
-                        P: "\\mathrm{P}",
-                        var: "\\mathrm{Var}",
-                        cov: "\\mathrm{Cov}",
-                        argmin: "\\mathop{\\arg\\min}",
-                        argmax: "\\mathop{\\arg\\max}",
-                    },
-                },
-                svg: {
-                    fontCache: "global",
-                },
-            }
-        </script>
-        <header>
-            <h1>A Scalable Method for Maximizing Agent Empowerment</h1>
-            <div class="authors">
-                <span class="author">Anonymous Authors</span>
-            </div>
-            <div class="notes">
-                <span class="institution">Anonymous Institution</span>
-            </div>
-            <div class="links">
-                <span class="link">
-                    <a href="./static/pdf/scaling_empowerment.pdf" target="_blank" class="button">
-                        <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
-                    </a>
-                </span>
-                <!-- <span class="link"> -->
-                <!--   <a href="TODO" class="button"> -->
-                <!--     <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span> -->
-                <!--   </a> -->
-                <!-- </span> -->
-            </div>
-        </header>
-
-        <main>
-            <!-- <section> -->
-            <!--   <div class="summary"> -->
-            <!--     <video id="overview" controls="" width="99%" poster="./static/videos/overview.png"> -->
-            <!--       <source src="static/videos/overview.mp4" type="video/mp4" /> -->
-            <!--     </video> -->
-            <!--   </div> -->
-            <!-- </section> -->
-
-            <section>
-                <div class="abstract">
-                    <h3>Abstract</h3>
-                    <p>
-                        Empowerment measures the capacity of an agent to actively control its environment. This object
-                        has been identified as an unsupervised mechanism for natural and artificial agents to make sense
-                        of large environments. In this work, we scale empowerment maximization to large discrete
-                        environments and high-dimensional, continuous environments. In addition to exhibiting exploration
-                        behavior, empowered agents seek out states in the environment that grant high degrees of control.
-                        Our results also show that empowerment depends strongly on the underlying state representation
-                        and should not be arbitrarily maximized over full state spaces. Our work supports empowerment
-                        maximization as a principled mechanism to train unsupervised agents in large environments.
-                    </p>
-                </div>
-                <!-- <div class="thin vertical"> -->
-                <!--   <img src="static/figures/img2.svg" /> -->
-                <!-- </div> -->
-            </section>
-
-            <section>
-                <h2>A Scalable Algorithm for Maximizing Agent Empowerment</h2>
-                <p>
-                    In large state spaces, searching for sparse rewards is a hard, often impossible task. An undirected
-                    agent often cannot stumble upon interesting behavior using random actions. However, real
-                    environments have inherent structure that makes the problem of searching for sparse reward more
-                    tractable. In this work, we introduce a method to train agents that maximizes the generic, universal
-                    resource of control: we reward an agent for its ability to exert control over an environment.
-                </p>
-                <p>
-                    We quantify control using the information-theoretic quantity of empowerment and build on
-                    state-of-the-art skill learning methods to maximize empowerment in open-ended settings. Our starting
-                    observation is that state-of-the-art mutual information skill learning methods already maximize
-                    quantities similar to empowerment. In this work, we present a recipe to adapt unsupervised skill
-                    learning methods to maximize empowerment in challenging, high-dimensional settings.
-                </p>
-                <div class="columns">
-                    <div class="wide">
-                        <img src="static/figures/ant/combined_base.png" />
-                    </div>
-                    <div class="thin">
-                        <p>
-                            <b>Figure.</b>
-                            Empowerment-maximizing agents learn interpretable behaviors that demonstrate control over
-                            their environment, discovering skills that reflect meaningful interactions with the world
-                            rather than pursuing novelty alone.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Results in Open-Ended Environments</h2>
-                <p>
-                    Empowerment maximization leads to exploratory behavior distinct from other common intrinsic or
-                    extrinsic rewards, where agents prioritize controllability instead of novelty. In open-ended
-                    environments, empowered agents achieve state-of-the-art performance in standard exploration metrics
-                    while learning interpretable behaviors that reflect meaningful resource accumulation and skill
-                    discovery.
-                </p>
-                <p>
-                    The empirical results show that empowerment maximization rewards behavior distinct from canonical
-                    intrinsic exploratory methods, prioritizing resource and skill accumulation over novelty. Our work
-                    suggests that empowerment maximization is a tractable mechanism for agents to explore large,
-                    open-ended settings, providing a principled foundation for training agents that can adapt to diverse
-                    downstream tasks.
-                </p>
-                <div class="margin">
-                    <img src="static/figures/fig_cubes.png" />
-                    <p class="caption">
-                        <b>Figure.</b>
-                        Empowerment-maximizing agents learn to manipulate and control objects in complex environments,
-                        discovering meaningful skills that demonstrate understanding of environmental dynamics.
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <h2>Empirical Results</h2>
-                <div class="columns">
-                    <div class="half">
-                        <img src="static/figures/ant/combined_ball.png" />
-                        <p class="caption">
-                            Empowerment-maximizing agents in continuous control tasks learn interpretable behaviors
-                            demonstrating control over locomotion and environmental interaction.
-                        </p>
-                    </div>
-                    <div class="half">
-                        <img src="static/figures/cubes/combined_cubes.png" />
-                        <p class="caption">
-                            In manipulation tasks, empowerment maximization leads to skill discovery focused on object
-                            control and environmental interaction rather than novelty seeking.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-    </body>
-</html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scaling Empowered Agents</title><meta name="description" content="Scaling Empowered Agents" />
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<link rel="stylesheet" href="./static/css/index.css" />
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}, svg: {fontCache: "global"}};</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg.js"></script>
+<script defer src="./static/media/rollouts/manifest.js"></script><script defer src="./static/js/rollout-player.js"></script></head><body><header><h1>Scaling Empowered Agents</h1>
+<div class="authors"><span class="author">Anonymous Authors</span></div>
+<div class="affiliations"><span>Paper under double-blind review</span></div>
+<div class="links"><a class="button" href="./static/pdf/scaling_empowerment.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a></div></header><main>
+<section id="abstract"><div class="abstract"><h2>Abstract</h2><p>Empowerment measures the capacity of an agent to actively control its environment. In this work, we explain the connection between skill learning and empowerment. While skill learning is not empowerment, we introduce a simple scalable recipe for empowerment maximization: empowerment corresponds to the number of executable skills from a state, so maximizing empowerment corresponds to reaching states that are good starting points for many skills. Our recipe applies to arbitrary underlying skill learning methods. Whereas most prior work on empowerment looks at tabular settings, this recipe enables us to study empowerment at a scale where we can realize theoretically-predicted but empirically-elusive properties of empowerment (e.g., gathering resources, environment modification, survival). Experiments show that empowerment maximization unlocks interesting emergent properties, such as building a house in Crafter.</p>
+</div></section>
+<section id="introduction"><h2>Introduction</h2><p>In this work, we scale empowerment <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.klyubin2005empowerment" target="_blank" rel="noopener">(Klyubin et al., 2005)</a> maximization to a regime where theorized intelligent behaviors can emerge. Our starting point is the observation that empowerment maximization is closely related to unsupervised skill discovery (USD) methods. The goal of empowerment maximization is to reach states from which it is easy to reach a diverse set of states. Relatedly, USD methods aim to learn a diverse set of different “skills”. However, unlike prior empowerment-maximization methods that have struggled to scale, modern skill discovery methods can learn interpretable, diverse behaviors in continuous, high-dimensional tasks. As we will show, a particular class of USD methods called mutual information skill learning (MISL) measures the point-wise empowerment: at any particular state, the number of different skills an agent can execute from that state lower bounds its empowerment. In other words, an agent is empowered at states where it has many options, or skills. Thus, while skill learning methods do not directly learn policies that maximize empowerment, we can use scalable skill learning methods to estimate the empowerment of a particular state; we can then train another policy that ascends the empowerment landscape to get to states where it has many options.</p></section>
+<section id="defining-empowerment"><h2>Defining Empowerment</h2><p>To make the definition of behavior precise, we will consider a <span class="math inline">\(z\)</span> and context-conditioned policy <span class="math inline">\(\pi(a \mid s, z; s_0) \in \Pi_\mathcal{Z}\)</span>, with <span class="math inline">\(s_0\)</span> taken to be the starting context (in our case, a starting state <span class="math inline">\(s_0\)</span>) of the behavior. For a specific “skill vector” <span class="math inline">\(z\)</span> we will refer to this policy as a “skill”. Importantly, the context state <span class="math inline">\(s_0\)</span> and the current state <span class="math inline">\(s\)</span> are two different objects—the context determines the “start point” of the skill, while current state tells the agent what to do now.</p>
+<p>Let <span class="math inline">\(p(z)\)</span> be a distribution over these skills, which we will assume to be uniform (without loss of generality; <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.ji2026geometry" target="_blank" rel="noopener">Ji et al., 2026</a>).</p>
+<p><strong>Potential empowerment.</strong> Let <span class="math inline">\(p(z)\)</span> be given, and let <span class="math inline">\(S_+ \sim p^\pi(s_+\mid s_0,z)\)</span> be a sample from the <a href="./static/pdf/scaling_empowerment.pdf#page=3" target="_blank" rel="noopener">discounted state occupancy measure</a> of skill <span class="math inline">\(\pi(a \mid s, z)\)</span>. Then, the potential empowerment of state <span class="math inline">\(s\)</span> is the conditional mutual information between the skill vector <span class="math inline">\(z\)</span> and the future state <span class="math inline">\(S_+\)</span>: <span class="math display">\[\mathcal{E}_{\mathrm{pot}}(s_0)
+        \triangleq
+        \max_{\pi \in \Pi_\mathcal{Z}}
+        \underbrace{I^\pi(Z;S_+ \mid S_0=s_0)}_{\triangleq \mathcal{E}_{\mathrm{eff}}(\pi, s_0)}.\]</span></p>
+<p>The potential empowerment can be understood as the maximum number of bits that the skill vector <span class="math inline">\(Z\)</span> can broadcast into the future (<span class="math inline">\(S_+\)</span>), starting from state <span class="math inline">\(s_0\)</span>. Our goal is to learn a policy <span class="math inline">\(\pi_{\mathrm{pot}}\)</span> that uses this empowerment as a reward, effectively navigating to states where it can broadcast many bits into the future (i.e., exert a strong influence on future outcomes).</p>
+</section>
+<section id="method"><h2>Skills Estimate Empowerment (SEE): A Scalable Algorithm for Maximizing Empowerment</h2><div class="theorem method-summary"><h3>Method Summary</h3><p>We adapt contrastive successor features (CSF) <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.zheng2025misl" target="_blank" rel="noopener">(Zheng et al., 2025)</a>, a scalable MISL method, to learn skills, which gives us (a lower bound on) the potential empowerment of states <span class="math inline">\(\mathcal{E}(s)\)</span>. Then, we train a second potential empowement policy using the estimated potential empowerment as a reward. This policy navigates to states <em>from which</em> it can exert control.</p>
+</div>
+<h3>Two-stage rollout</h3><p>For large state spaces, we cannot simply learn skills for every starting state <span class="math inline">\(s_0\)</span> and then maximize the potential empowerment over the constructed field. Instead, we consider a two-stage rollout scheme: within each episode of data collection, we first roll out the potential empowerment policy and then roll out one of the effective empowerment policies (i.e., sample a skill <span class="math inline">\(z\)</span> and execute <span class="math inline">\(\pi_{\mathrm{eff}}(a \mid s,z;s_0)\)</span>) (<a href="./static/pdf/scaling_empowerment.pdf#nameddest=subsection.A.2" target="_blank" rel="noopener">Sections A.2</a> and <a href="./static/pdf/scaling_empowerment.pdf#nameddest=subsection.A.4" target="_blank" rel="noopener">A.4</a>). We can interpret skills as local probes of empowerment, where the potential empowerment policy ascends the empowerment landscape estimated by these probes.</p>
+<figure id="method-rollout"><div class="rollout-demo" data-rollout="ant_soccer" data-view="method"><a class="figure-download rollout-fallback" href="./static/figures/scaling/paper/ant_soccer/branch_point.svg"><img loading="lazy" src="./static/figures/scaling/paper/ant_soccer/branch_point.svg" alt="AntSoccer potential policy reaches the ball before skill branches execute." /></a></div><figcaption>Watch the two-stage rollout. The animation pauses at the shared switch state. Press play to see what the skills do next.</figcaption></figure></section>
+<section id="experiments"><h2>Experiments</h2><h3 id="scaling-and-baselines">Scaling and Baselines</h3><figure id="fig-highdof_combined"><div class="rollout-grid"><div class="rollout-panel"><div class="rollout-demo" data-rollout="builderbench" data-view="mini"><div class="rollout-pair rollout-fallback"><a class="figure-download" href="./static/figures/scaling/paper/builderbench/branch_point.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/builderbench/branch_point.svg" alt="BuilderBench cubes. (Ghugare et al., 2026)" /></a><a class="figure-download" href="./static/figures/scaling/paper/builderbench/rollout_end.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/builderbench/rollout_end.svg" alt="BuilderBench cubes. (Ghugare et al., 2026)" /></a></div></div><p class="panel-caption">(a) <strong>BuilderBench cubes.</strong> <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.ghugare2026builder" target="_blank" rel="noopener">(Ghugare et al., 2026)</a></p></div><div class="rollout-panel"><div class="rollout-demo" data-rollout="ant" data-view="mini"><div class="rollout-pair rollout-fallback"><a class="figure-download" href="./static/figures/scaling/paper/ant/branch_point.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/ant/branch_point.svg" alt="Ant locomotion. (Park et al., 2025)" /></a><a class="figure-download" href="./static/figures/scaling/paper/ant/rollout_end.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/ant/rollout_end.svg" alt="Ant locomotion. (Park et al., 2025)" /></a></div></div><p class="panel-caption">(b) <strong>Ant locomotion.</strong> <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.park2025ogbench" target="_blank" rel="noopener">(Park et al., 2025)</a></p></div><div class="rollout-panel"><div class="rollout-demo" data-rollout="ant_soccer" data-view="mini"><div class="rollout-pair rollout-fallback"><a class="figure-download" href="./static/figures/scaling/paper/ant_soccer/branch_point.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/ant_soccer/branch_point.svg" alt="Ant soccer. (Park et al., 2025)" /></a><a class="figure-download" href="./static/figures/scaling/paper/ant_soccer/rollout_end.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/ant_soccer/rollout_end.svg" alt="Ant soccer. (Park et al., 2025)" /></a></div></div><p class="panel-caption">(c) <strong>Ant soccer.</strong> <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.park2025ogbench" target="_blank" rel="noopener">(Park et al., 2025)</a></p></div><div class="rollout-panel"><div class="rollout-demo" data-rollout="craftax" data-view="mini"><div class="rollout-pair rollout-fallback"><a class="figure-download" href="./static/figures/scaling/paper/craftax/branch_point.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/craftax/branch_point.svg" alt="Craftax-Classic. (Matthews et al., 2024)" /></a></div></div><p class="panel-caption" id="fig-highdof-craftax">(d) <strong>Craftax-Classic.</strong> <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.matthews2024craftax" target="_blank" rel="noopener">(Matthews et al., 2024)</a></p></div></div><figcaption><a href="./static/pdf/scaling_empowerment.pdf#page=7" target="_blank" rel="noopener">Figure 2</a>. <strong>Empowerment-maximizing behavior across environments.</strong> (a) In the BuilderBench task, a gripper interacts with blocks in an open-ended setting. The potential empowerment policy is visualized with the white rollout, navigating to the blocks and staying there. Then, the effective empowerment policies, or skills, knock the blocks in different directions (colorful lines and blocks). (b) In the first version of the AntSoccer task, an agent can be empowered without interacting with the ball. The potential empowerment policy (white) navigates towards the central area of the arena, while the skills branch out from this point. (c) In the second version of the AntSoccer task, an agent can only be empowered if it controls the ball. The trained potential empowerment policy reaches the soccer ball, while skills kick the soccer ball in different directions. (d) In Craftax-Classic, the potential empowerment agent gathers materials, builds a crafting table, then builds tools using gathered materials.</figcaption></figure>
+<p><strong>Discrete Setting: Craftax-Classic.</strong> SEE scales to high-dimensional, discrete settings. In Craftax-Classic (<a href="#fig-highdof-craftax">Figure 2d</a>), the agent consistently unlocks <span class="math inline">\(7-8\)</span> out of 22 total achievements per rollout from <span class="math inline">\(1 \times 10^{9}\)</span> environment steps. These metrics exceed the best previously-reported success rates of intrinsic exploration methods in Crafter, which obtains <span class="math inline">\(\sim5.5\)</span> achievements with the same training budget  <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.mohamed2026temporal" target="_blank" rel="noopener">(Mohamed et al., 2026)</a>. The estimated empowerment also rises steadily  (<a href="./static/pdf/scaling_empowerment.pdf#page=6" target="_blank" rel="noopener">Figure 1</a> in the paper), tracking the development of interesting behavior. Implementation details and hyperparameters for Craftax-Classic are in <a href="./static/pdf/scaling_empowerment.pdf#nameddest=subsection.B.2" target="_blank" rel="noopener">Section B.2</a>.</p>
+<h3>Emergent Behaviors</h3>
+<p><strong>Accruing and spending power.</strong> Across all environments, the learned switching policies accrue empowerment while executing the potential empowerment policy (<a href="#fig-potential_trace_row">Figure 4</a>, white traces). The policy gathers empowerment by walking to the center of the arena in Ant, getting close to the soccer ball in AntSoccer, getting close to the blocks in BuilderBench, and gathering resources and tools in Crafter. Then, the policies spend the empowerment when executing skills (<a href="#fig-potential_trace_row">Figure 4</a>, colorful traces), spreading out in the arena (Ant), kicking the ball (AntSoccer), and moving the blocks (BuilderBench).</p>
+<figure id="fig-potential_trace_row"><div class="rollout-demo" data-rollouts="ant,ant_soccer,builderbench,craftax" data-view="explorer"><a class="figure-download rollout-fallback" href="./static/figures/scaling/paper/traces/trace_values_row.svg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="./static/figures/scaling/paper/traces/trace_values_row.svg" alt="Potential empowerment policies accrue empowerment, while skills spend it. (Top row) Over the course of the trajectory, the potential empowerment policies (white lines) “gather” empowerment, reaching empowered states. Correspondingly, the empowerment estimates increase over the course of the trajectory. (Bottom row) At the gray skill switch mark, executing a skill (colorful lines) from the reached state “spends” the empowerment, reflecting the intuition that potential empowerment policies collect power and effective empowerment spends power. Traces use one seed and four skill branches per environment." /></a></div><figcaption><a href="./static/pdf/scaling_empowerment.pdf#page=9" target="_blank" rel="noopener">Figure 4</a>. <strong>Potential empowerment policies accrue empowerment, while skills spend it.</strong> (Top row) Over the course of the trajectory, the potential empowerment policies (white lines) “gather” empowerment, reaching empowered states. Correspondingly, the empowerment estimates increase over the course of the trajectory. (Bottom row) At the gray skill switch mark, executing a skill (colorful lines) from the reached state “spends” the empowerment, reflecting the intuition that potential empowerment policies collect power and effective empowerment spends power. Traces use one seed and four skill branches per environment.</figcaption></figure>
+<p><strong>Gathering resources and tool use.</strong> Resource-gathering and tool use enable empowerment-maximizing agents to exert control over the environment. In the Crafter environment, the trained potential empowerment agent learns to acquire many diverse materials (e.g. wood, saplings), such that its potential empowerment increases over the course of the episode. From that potentially-empowered state, the agent executes diverse skills such as building houses, mining, and using the gathered resources to craft new tools (<a href="#fig-emergent-behaviors">Figure 5</a>).</p>
+<p><strong>Modifying the environment.</strong> Empowered agents learn to perturb their environment to maximize future control. This phenomena has been documented in prior works <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.salge2014changing" target="_blank" rel="noopener">(Salge et al., 2014)</a> in simple tabular settings. In the scaled up Crafter setting, we observe more complex “building” behaviors, such as learning to construct a house when defending against enemies (<a href="#fig-emergent-behaviors">Figure 5</a>).</p>
+<figure id="fig-emergent-behaviors"><div class="rollout-grid rollout-grid-3"><div class="rollout-panel"><div class="rollout-demo" data-rollout="craftax-resources" data-view="mini"><a class="figure-download rollout-fallback" href="./static/media/rollouts/craftax-resources/resources.png"><img loading="lazy" decoding="async" src="./static/media/rollouts/craftax-resources/resources.png" alt="The potential policy has gathered sapling, wood, a wooden pickaxe, and a wooden sword." /></a></div><p class="panel-caption">(a) <strong>Gathering resources</strong></p></div><div class="rollout-panel"><div class="rollout-demo" data-rollout="craftax-building" data-view="mini"><a class="figure-download rollout-fallback" href="./static/media/rollouts/craftax-building/building.png"><img loading="lazy" decoding="async" src="./static/media/rollouts/craftax-building/building.png" alt="Tables and plants placed around the agent, outlined in white." /></a></div><p class="panel-caption">(b) <strong>Modifying the environment</strong></p></div><div class="rollout-panel"><div class="rollout-demo" data-rollout="craftax-survival" data-view="mini"><a class="figure-download rollout-fallback" href="./static/media/rollouts/craftax-survival/survival.png"><img loading="lazy" decoding="async" src="./static/media/rollouts/craftax-survival/survival.png" alt="The potential policy among zombies." /></a></div><p class="panel-caption">(c) <strong>Survival</strong></p></div></div><figcaption><a href="./static/pdf/scaling_empowerment.pdf#page=9" target="_blank" rel="noopener">Figure 5</a>. <strong>Empowerment maximization has interesting emergent behaviors.</strong> (a) In Crafter, the empowered agent quickly accumulates many resources and uses a tool (crafting table, wooden icon with saw) to craft other tools in the game. Resources boxed in white. (b) Early in training, the agent learns to build a “house” consisting of plants and crafting tables. Built tiles boxed in white. (c) The agent also naturally learns to survive, avoiding and killing enemies like zombies and skeletons. Boxes with “x” indicate killing an enemy. One seed per example.</figcaption></figure>
+<p><strong>Survival.</strong> In death, an agent no longer has any control and, thus, has no empowerment. Therefore, agents maximizing empowerment should learn survival skills. In Crafter, we see that empowerment-maximizing agents naturally learn survival skills like killing and dodging enemies. Importantly, the empowerment-maximizing agent learns behavior <em>distinct</em> from simply training a survival reward (e.g. <span class="math inline">\(r=1\)</span> for every step, <span class="math inline">\(r=0\)</span> upon termination), which does not learn more complex crafting behaviors and <em>only</em> prioritizes survival skills.</p>
+</section>
+<section id="discussion"><h2>Discussion</h2><p>Despite the conceptual appeal of empowerment as a tool for understanding natural agents and building artificial agents, its seeming computational intractability has caused prior work to resort to approximations that do not learn one policy that “keeps its options open” <a href="./static/pdf/scaling_empowerment.pdf#nameddest=cite.klyubin2008keep" target="_blank" rel="noopener">(Klyubin et al., 2008)</a>. In providing a conceptual link between skill learning methods and empowerment, we provide a method that maximizes potential and effective empowerment, two policies that measure controllability in distinct ways. We present key practical considerations to learn empowerment maximization policies in high-DoF settings. Future work should investigate simplified parameterizations of empowerment maximization that can resolve practical considerations detailed within our method, at scale. Furthermore, our work highlights the sensitivity of empowerment maximization to representations of the world, with open questions on the interplay between representations of the world and empowerment maximization.</p></section>
+</main></body></html>
